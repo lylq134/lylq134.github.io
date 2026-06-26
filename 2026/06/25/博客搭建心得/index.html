@@ -1,0 +1,1959 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-wallpaper-mode="banner" style="--bannerOffset: 15vh; --banner-height-home: 55vh; --banner-height: 50vh; --configHue: 165; --page-width: 100rem;">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+<title>Hexo博客搭建实操心得 - 晚萤赴长路</title>
+
+
+<meta name="description" content="个人技术随笔、生活记录博客">
+
+
+<meta name="keywords" content="Hexo,Blog,Technical Notes">
+
+
+<meta name="author" content="余生">
+
+
+<!-- Open Graph -->
+<meta property="og:title" content="Hexo博客搭建实操心得 - 晚萤赴长路">
+<meta property="og:description" content="个人技术随笔、生活记录博客">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://lylq134.github.io/2026/06/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%BF%83%E5%BE%97/">
+<meta property="og:site_name" content="晚萤赴长路">
+
+<meta property="og:image" content="/img/favicon.ico">
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hexo博客搭建实操心得 - 晚萤赴长路">
+<meta name="twitter:description" content="个人技术随笔、生活记录博客">
+
+<meta name="twitter:image" content="/img/favicon.ico">
+
+
+<!-- Favicon -->
+
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.ico">
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.ico">
+  
+  
+  <link rel="apple-touch-icon" href="/img/favicon.ico">
+  
+  
+  
+  
+
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/banner.css">
+<link rel="stylesheet" href="/css/cards.css">
+<link rel="stylesheet" href="/css/post.css">
+<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/code.css">
+<link rel="stylesheet" href="/css/widgets.css">
+<link rel="stylesheet" href="/css/toc.css">
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/comments.css">
+<link rel="stylesheet" href="/css/effects.css">
+<link rel="stylesheet" href="/css/scrollbar.css">
+<link rel="stylesheet" href="/css/display-settings.css">
+<link rel="stylesheet" href="/css/water-waves.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<!-- Analytics -->
+
+
+
+
+
+
+
+
+<!-- RSS -->
+
+<link rel="alternate" href="/atom.xml" title="晚萤赴长路" type="application/atom+xml">
+
+
+<!-- Typewriter CSS -->
+
+
+<!-- Font Preloading -->
+
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lylq134.github.io/2026/06/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%BF%83%E5%BE%97/">
+
+<!-- No-Referrer Domain Script -->
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="min-h-screen  enable-banner sticky-navbar enable-card-border " style="--bannerOffset: 15vh; --banner-height-home: 55vh; --banner-height: 50vh; --configHue: 165; --page-width: 100rem;">
+  <script>
+    (function() {
+      var BANNER_HEIGHT_EXTEND = 6;
+      var configHue = 165;
+      var defaultMode = 'system';
+      var defaultWallpaperMode = 'banner';
+      var wallSwitchable = false;
+      var cardTransparentOpacity = 0.5;
+
+      // 1. Set theme
+      var storedTheme = localStorage.getItem('theme');
+      var themeToApply = storedTheme || defaultMode;
+      if (themeToApply === 'system') {
+        themeToApply = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      if (themeToApply === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      document.documentElement.setAttribute('data-theme', themeToApply);
+
+      // 2. Set hue
+      var storedHue = localStorage.getItem('hue');
+      var hueToApply = storedHue !== null ? storedHue : configHue;
+      document.documentElement.style.setProperty('--hue', hueToApply);
+
+      // 3. Set wallpaper mode
+      var wallpaperModeToApply = 'banner';
+      document.documentElement.setAttribute('data-wallpaper-mode', wallpaperModeToApply);
+
+      // 4. Set card opacity (no longer needed for overlay but keeping var)
+      
+      // 5. Calculate --banner-height-extend
+      var vh = window.innerHeight;
+      var extend = BANNER_HEIGHT_EXTEND * 4;
+      var bannerHeightExtend = extend > vh ? Math.floor(vh / 4) * 4 : extend;
+      if (bannerHeightExtend === 0) bannerHeightExtend = 4;
+      document.documentElement.style.setProperty('--banner-height-extend', bannerHeightExtend + 'px');
+
+      // 6. Apply wallpaper and content positioning when DOM is ready
+      requestAnimationFrame(function() {
+        var isHomePage = false;
+        var body = document.body;
+        var wrapper = document.getElementById('wallpaper-wrapper');
+        var mainContentWrapper = document.querySelector('.z-30.pointer-events-none');
+        var isMobile = window.innerWidth < 1024;
+        var isMobileNonHome = isMobile && !isHomePage;
+
+        // Reset wallpaper classes on body
+        body.classList.remove('enable-banner', 'no-banner-layout', 'wallpaper-transparent');
+
+        // Always apply banner mode
+        body.classList.add('enable-banner');
+        if (wrapper) {
+          wrapper.classList.remove('wallpaper-overlay', 'wallpaper-fullscreen');
+          if (isMobileNonHome) {
+            wrapper.style.display = 'none';
+            wrapper.classList.add('mobile-hide-banner');
+          } else {
+            wrapper.style.display = 'block';
+            wrapper.classList.remove('mobile-hide-banner');
+          }
+        }
+
+        // Apply main content positioning
+        if (mainContentWrapper) {
+          mainContentWrapper.style.setProperty("transition", "none", "important");
+
+          if (isMobileNonHome) {
+            mainContentWrapper.classList.add('mobile-main-no-banner');
+          } else {
+            mainContentWrapper.classList.remove('mobile-main-no-banner');
+          }
+
+          if (isMobile && isHomePage) {
+            mainContentWrapper.style.removeProperty('top');
+            mainContentWrapper.style.position = '';
+            mainContentWrapper.style.zIndex = '';
+            mainContentWrapper.style.setProperty('margin-top', '0', 'important');
+          } else if (isMobileNonHome) {
+            mainContentWrapper.style.setProperty('top', '5.5rem', 'important');
+            mainContentWrapper.style.position = '';
+            mainContentWrapper.style.zIndex = '';
+            mainContentWrapper.style.setProperty('margin-top', '0', 'important');
+          } else {
+            var targetTop = isHomePage ? 'calc(var(--banner-height-home) - 7.5rem)' : 'calc(var(--banner-height) - 4rem)';
+            mainContentWrapper.style.setProperty('top', targetTop, 'important');
+            mainContentWrapper.style.position = '';
+            mainContentWrapper.style.zIndex = '';
+            mainContentWrapper.style.setProperty('margin-top', '0', 'important');
+          }
+
+          // Make page visible now that positions are set
+          mainContentWrapper.style.visibility = 'visible';
+
+          requestAnimationFrame(function() {
+            mainContentWrapper.style.removeProperty('transition');
+          });
+        }
+
+        // Banner title overlay visibility
+        var bannerTextOverlay = document.querySelector('.home-text-overlay');
+        if (bannerTextOverlay) {
+          if (isHomePage) {
+            bannerTextOverlay.classList.remove('hidden');
+          } else {
+            bannerTextOverlay.classList.add('hidden');
+          }
+        }
+      });
+
+      // 7. Set additional data attributes from localStorage
+      if (localStorage.getItem('wavesEnabled') !== null) {
+        document.documentElement.setAttribute('data-waves-enabled', localStorage.getItem('wavesEnabled'));
+      }
+      if (localStorage.getItem('gradientEnabled') !== null) {
+        document.documentElement.setAttribute('data-gradient-enabled', localStorage.getItem('gradientEnabled'));
+      }
+      if (localStorage.getItem('bannerTitleEnabled') !== null) {
+        document.documentElement.setAttribute('data-banner-title-enabled', localStorage.getItem('bannerTitleEnabled'));
+      }
+      if (localStorage.getItem('sakuraEnabled') !== null) {
+        document.documentElement.setAttribute('data-sakura-enabled', localStorage.getItem('sakuraEnabled'));
+      }
+    })();
+  </script>
+
+  <!-- Navbar -->
+  <div id="top-row" class="z-50 pointer-events-none relative transition-all duration-700 mx-auto w-full xl:w-[92vw] max-w-[var(--page-width)] px-3 md:px-4">
+    <div id="navbar-wrapper" class="pointer-events-auto transition-all sticky top-0">
+      
+
+<nav id="navbar"
+     class="navbar sticky transparent"
+     data-transparent="true"
+     role="navigation"
+     aria-label="主导航">
+
+  <div>
+    <div class="navbar-inner">
+    <!-- Left: Logo + Site Title -->
+    <div class="navbar-brand">
+      <a href="/" class="navbar-logo-link" aria-label="晚萤赴长路 - 首页">
+        
+        <span class="navbar-title">晚萤赴长路</span>
+      </a>
+    </div>
+
+    <!-- Center: Menu Links -->
+    <div class="navbar-menu" id="navbar-menu" role="menubar">
+      <ul class="navbar-links">
+        <!-- Home (LinkPreset.Home) -->
+        <li class="navbar-link-item" role="none">
+          <a href="/" class="navbar-link" role="menuitem">
+            <i class="fa-solid fa-house"></i>
+            <span>首页</span>
+          </a>
+        </li>
+
+        <!-- Archive (LinkPreset.Archive) -->
+        <li class="navbar-link-item" role="none">
+          <a href="/archives" class="navbar-link" role="menuitem">
+            <i class="fa-solid fa-box-archive"></i>
+            <span>归档</span>
+          </a>
+        </li>
+
+        <!-- Categories -->
+        <li class="navbar-link-item" role="none">
+          <a href="/categories" class="navbar-link" role="menuitem">
+            <i class="fa-regular fa-folder"></i>
+            <span>分类</span>
+          </a>
+        </li>
+
+        <!-- Tags -->
+        <li class="navbar-link-item" role="none">
+          <a href="/tags" class="navbar-link" role="menuitem">
+            <i class="fa-solid fa-tags"></i>
+            <span>标签</span>
+          </a>
+        </li>
+
+        <!-- About -->
+        <li class="navbar-link-item" role="none">
+          <a href="/about" class="navbar-link" role="menuitem">
+            <i class="fa-solid fa-user"></i>
+            <span>关于</span>
+          </a>
+        </li>
+
+        <!-- Friends -->
+        
+        <li class="navbar-link-item" role="none">
+          <a href="/friends" class="navbar-link" role="menuitem">
+            <i class="fa-solid fa-users"></i>
+            <span>友链</span>
+          </a>
+        </li>
+        
+
+
+
+        <!-- Custom Nav Links / Dropdown Groups -->
+        
+      </ul>
+    </div>
+
+    <!-- Right Side Buttons -->
+    <div class="navbar-actions">
+      <!-- Theme Toggle (Light/Dark/System) -->
+      <button id="theme-toggle" class="navbar-action-btn theme-switch-btn" aria-label="切换主题" title="切换主题">
+        <i class="fa-solid fa-sun theme-icon-light sun-icon"></i>
+        <i class="fa-solid fa-moon theme-icon-dark moon-icon"></i>
+      </button>
+
+      <!-- Display Settings Toggle -->
+      <button id="display-settings-toggle" class="navbar-action-btn display-settings-toggle" aria-label="显示设置" title="显示设置">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+
+      <!-- Search Toggle -->
+      <button id="search-toggle" class="navbar-action-btn search-toggle-btn" aria-label="搜索" title="搜索">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+
+      <!-- Mobile Hamburger Menu -->
+      <button id="mobile-menu-toggle" class="navbar-action-btn mobile-menu-btn" aria-label="切换菜单" aria-expanded="false" aria-controls="navbar-menu">
+        <i class="fa-solid fa-bars hamburger-icon"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+    </div>
+  </div>
+
+  <!-- Wallpaper / Banner -->
+  
+
+<div id="wallpaper-wrapper">
+  
+  <!-- Banner Mode: Image slides with Ken Burns effect -->
+  <div id="banner-images" class="banner-images-container" data-interval="5000">
+    
+      
+      <div class="banner-image-slide active" data-index="0">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m1.avif">
+          
+          <img src="/img/DesktopWallpaper/d1.avif" alt="Banner 1"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="eager">
+        </picture>
+        
+      </div>
+      
+      <div class="banner-image-slide" data-index="1">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m2.avif">
+          
+          <img src="/img/DesktopWallpaper/d2.avif" alt="Banner 2"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="lazy">
+        </picture>
+        
+      </div>
+      
+      <div class="banner-image-slide" data-index="2">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m3.avif">
+          
+          <img src="/img/DesktopWallpaper/d3.avif" alt="Banner 3"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="lazy">
+        </picture>
+        
+      </div>
+      
+      <div class="banner-image-slide" data-index="3">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m4.avif">
+          
+          <img src="/img/DesktopWallpaper/d4.avif" alt="Banner 4"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="lazy">
+        </picture>
+        
+      </div>
+      
+      <div class="banner-image-slide" data-index="4">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m5.avif">
+          
+          <img src="/img/DesktopWallpaper/d5.avif" alt="Banner 5"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="lazy">
+        </picture>
+        
+      </div>
+      
+      <div class="banner-image-slide" data-index="5">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m6.avif">
+          
+          <img src="/img/DesktopWallpaper/d6.avif" alt="Banner 6"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="lazy">
+        </picture>
+        
+      </div>
+      
+    
+  </div>
+  
+
+  
+
+  
+
+  
+
+  <!-- Banner Dim Overlay -->
+  <div id="banner-dim-container" style="opacity: 0.45;"></div>
+
+  <!-- Carousel Preload Images (hidden) -->
+  
+  <div id="banner-carousel-images" style="display: none;" aria-hidden="true">
+    
+      
+        
+      
+        
+        <img src="/img/DesktopWallpaper/d2.avif" alt="" loading="lazy">
+        
+      
+        
+        <img src="/img/DesktopWallpaper/d3.avif" alt="" loading="lazy">
+        
+      
+        
+        <img src="/img/DesktopWallpaper/d4.avif" alt="" loading="lazy">
+        
+      
+        
+        <img src="/img/DesktopWallpaper/d5.avif" alt="" loading="lazy">
+        
+      
+        
+        <img src="/img/DesktopWallpaper/d6.avif" alt="" loading="lazy">
+        
+      
+    
+  </div>
+  
+
+  <!-- Banner Overlay Container -->
+  <div id="banner-overlay-container">
+    
+
+    
+    <!-- Post Meta Overlay -->
+    <div class="post-meta-overlay banner-post-meta">
+      <h1 class="post-meta-title">Hexo博客搭建实操心得</h1>
+      <div class="post-meta-info meta-info">
+        
+        <span class="post-meta-date">
+          <i class="fa-regular fa-calendar"></i>
+          发布于: 2026-06-25
+        </span>
+        
+        
+        <span class="post-meta-updated">
+          <i class="fa-regular fa-pen-to-square"></i>
+          更新于: 2026-06-25 17:13
+        </span>
+        
+        
+        <span class="post-meta-word-count">
+          <i class="fa-regular fa-file-lines"></i>
+          497 字
+        </span>
+        <span class="post-meta-reading-time">
+          <i class="fa-regular fa-clock"></i>
+          1 min
+        </span>
+        
+      </div>
+    </div>
+    
+
+    
+  </div>
+
+  <!-- Water Waves SVG (4 layers) -->
+  <svg class="water-waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+    <defs>
+      <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+    </defs>
+    <g>
+      <use href="#wave-path" x="50" y="0" class="wave-1"/>
+      <use href="#wave-path" x="50" y="4" class="wave-2"/>
+      <use href="#wave-path" x="50" y="7" class="wave-3"/>
+      <use href="#wave-path" x="50" y="10" class="wave-4"/>
+    </g>
+  </svg>
+
+  <!-- Gradient Transition -->
+  <div id="banner-gradient" class="banner-gradient"></div>
+
+  <!-- Scroll Down Indicator (fullscreen mode, homepage only) -->
+  
+</div>
+
+
+  <!-- Main Content Area with grid wrappers -->
+  <div id="main-content-wrapper" class="absolute w-full z-30 pointer-events-none mobile-main-no-banner">
+    <div class="relative w-full xl:w-[92vw] max-w-[var(--page-width)] mx-auto pointer-events-auto">
+      
+
+<div id="main-grid" class="main-grid-layout has-both-sidebars">
+  <!-- ===== Left Sidebar ===== -->
+  
+  <aside class="sidebar-left" aria-label="左侧边栏">
+    
+      
+
+<!-- Left sidebar widgets -->
+<div class="sidebar-widgets sidebar-left-widgets">
+  
+    
+      
+        
+
+<div class="widget profile-widget">
+  <!-- Avatar -->
+  
+  <div class="profile-avatar">
+    <img
+      src="/img/liuyin.jpg"
+      alt="余生"
+      loading="lazy"
+    >
+  </div>
+  
+
+  <!-- Name -->
+  <h2 class="profile-name">余生</h2>
+
+  <!-- Bio / description -->
+  
+  <p class="profile-bio">希望没有烦恼.</p>
+  
+
+  <!-- Social links -->
+  
+  <div class="profile-social">
+    
+      
+      <a
+        href="https://github.com/lylq134"
+        class="profile-social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <i class="fa-brands fa-github"></i>
+      </a>
+      
+    
+      
+      <a
+        href="mailto:1742881258@qq.com"
+        class="profile-social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Email"
+      >
+        <i class="fa-regular fa-envelope"></i>
+      </a>
+      
+    
+      
+      <a
+        href="/rss/"
+        class="profile-social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="RSS"
+      >
+        <i class="fa-solid fa-rss"></i>
+      </a>
+      
+    
+  </div>
+  
+</div>
+
+      
+    
+      
+        
+<div class="widget announcement-widget announcement-info">
+  <div class="widget-header">
+    
+    公告
+  </div>
+  <div class="widget-body">
+    <div class="announcement-content">欢迎来访</div>
+    
+  </div>
+</div>
+
+
+      
+    
+      
+        
+<div class="widget music-widget">
+  <div class="widget-header">音乐</div>
+  <div class="widget-body">
+    
+      <meting-js
+        server="netease"
+        type="playlist"
+        id="10046455237"
+        
+        order="list"
+        fixed="false"
+        mini="false"
+        autoplay="false"
+        theme="var(--primary)"
+        loop="all"
+        preload="auto"
+        volume="0.7"
+        mutex="true">
+      </meting-js>
+    
+  </div>
+</div>
+
+
+      
+    
+      
+        <div class="widget categories-widget">
+  <div class="widget-header">分类</div>
+  <div class="widget-body">
+    
+    <div class="category-item">
+      <a href="/categories/%E6%84%9F%E6%83%B3/">感想</a>
+      <span class="category-count">1</span>
+    </div>
+    
+    <div class="category-item">
+      <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97%E8%AF%BE%E5%A0%82/">云计算课堂</a>
+      <span class="category-count">1</span>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+      
+    
+      
+        <div class="widget tags-widget">
+  <div class="widget-header">标签</div>
+  <div class="widget-body">
+    <div class="tag-list">
+      
+      <a href="/tags/Hexo/" class="tag-item">Hexo</a>
+      
+      <a href="/tags/GitHub-Pages/" class="tag-item">GitHub Pages</a>
+      
+      <a href="/tags/Firefly%E4%B8%BB%E9%A2%98/" class="tag-item">Firefly主题</a>
+      
+      
+    </div>
+    
+  </div>
+</div>
+
+      
+    
+      
+    
+      
+    
+  
+</div>
+
+    
+    
+    
+      
+
+
+<nav class="category-bar" aria-label="分类标题">
+  <div class="category-bar-header">
+    <i class="fa-regular fa-folder" aria-hidden="true"></i>
+    <span>分类标题</span>
+  </div>
+
+  <div class="category-bar-list">
+    
+    <div class="category-bar-group">
+      <div class="category-bar-parent">
+        <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97%E8%AF%BE%E5%A0%82/" class="category-bar-link">
+          云计算课堂
+        </a>
+        <span class="category-bar-count">1</span>
+      </div>
+
+      <!-- Subcategories -->
+      
+      
+    </div>
+    
+    <div class="category-bar-group">
+      <div class="category-bar-parent">
+        <a href="/categories/%E6%84%9F%E6%83%B3/" class="category-bar-link">
+          感想
+        </a>
+        <span class="category-bar-count">1</span>
+      </div>
+
+      <!-- Subcategories -->
+      
+      
+    </div>
+    
+  </div>
+</nav>
+
+
+    
+  </aside>
+  
+
+  <!-- ===== Main Content ===== -->
+  <main id="main-content" aria-label="文章">
+    
+<div class="content-nav-bar card-base">
+  <!-- Home button -->
+  <a href="/" class="content-nav-item content-nav-home" aria-label="Home" title="首页">
+    <i class="fa-solid fa-house"></i>
+  </a>
+  
+  <!-- Archive button -->
+  <a href="/archives" class="content-nav-item">
+    <span class="nav-item-label">归档</span>
+    <span class="nav-item-count">2</span>
+  </a>
+
+  <!-- Dynamic Categories -->
+  
+    <a href="/categories/%E6%84%9F%E6%83%B3/" class="content-nav-item active">
+      <span class="nav-item-label">感想</span>
+      <span class="nav-item-count">1</span>
+    </a>
+  
+    <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97%E8%AF%BE%E5%A0%82/" class="content-nav-item">
+      <span class="nav-item-label">云计算课堂</span>
+      <span class="nav-item-count">1</span>
+    </a>
+  
+</div>
+
+    <article class="post-container" itemscope itemtype="http://schema.org/Article">
+
+
+      <div class="post-content-card">
+        <!-- Post meta top: title, date, author, reading time, word count, categories -->
+        
+
+<header class="post-meta-top">
+    <!-- Top row: Word count & Reading time pills -->
+    <div class="post-header-badges-top">
+      
+      <span class="post-meta-badge badge-wordcount">
+        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+        <span>497 字</span>
+      </span>
+      
+
+      
+      <span class="post-meta-badge badge-reading-time">
+        <i class="fa-regular fa-clock" aria-hidden="true"></i>
+        <span>
+          
+          
+          2 分钟
+        </span>
+      </span>
+      
+    </div>
+
+    <!-- Title with CSS-styled vertical bar prefix -->
+    <h1 class="post-title post-title-custom">
+      <strong>Hexo博客搭建实操心得</strong>
+    </h1>
+
+    <!-- Bottom row: Date & Categories/Tags path -->
+    <div class="post-header-badges-bottom">
+      
+      <span class="post-meta-badge badge-date">
+        <i class="fa-regular fa-calendar-days" aria-hidden="true"></i>
+        <time datetime="2026-06-25 00:00" pubdate>
+          2026-06-25
+        </time>
+      </span>
+      
+
+      <!-- Categories & Tags Breadcrumb Path -->
+      
+      
+      <span class="post-meta-badge badge-taxonomy">
+        <i class="fa-solid fa-tags" aria-hidden="true"></i>
+        <span class="taxonomy-path">
+          
+            
+            <a href="/categories/%E6%84%9F%E6%83%B3/" class="taxonomy-cat">
+              感想
+            </a>
+          
+            
+              <span class="taxonomy-separator">/</span>
+            
+            <a href="/tags/Hexo/" class="taxonomy-tag">
+              Hexo
+            </a>
+          
+            
+              <span class="taxonomy-separator">/</span>
+            
+            <a href="/tags/Firefly%E4%B8%BB%E9%A2%98/" class="taxonomy-tag">
+              Firefly主题
+            </a>
+          
+            
+              <span class="taxonomy-separator">/</span>
+            
+            <a href="/tags/GitHub-Pages/" class="taxonomy-tag">
+              GitHub Pages
+            </a>
+          
+        </span>
+      </span>
+      
+    </div>
+
+    <!-- Post updated notice -->
+    
+    <div class="post-updated-note">
+      更新于 2026-06-25 17:13
+    </div>
+    
+</header>
+
+
+        
+
+        <!-- Post content -->
+        <div
+          class="post-content markdown-body custom-md"
+          itemprop="articleBody"
+        >
+          <h1 id="博客搭建心得"><a href="#博客搭建心得" class="headerlink" title="博客搭建心得"></a>博客搭建心得</h1><p>这次亲手搭Hexo博客，全程都是自己一步步试错摸索，收获挺实在。</p>
+<p>一开始装环境就踩坑，npm装依赖一直报错，换成pnpm才搞定，中途还缺moment模块，折腾半天才装好。后来创建分类、友链页面时，我自己写了一堆样式和循环代码，结果页面直接空白，卡了很久。翻看Firefly主题说明才明白，页面只需要头部简单配置，自带模板会自动渲染，多余代码反而会冲突，删掉自定义内容后页面才正常。</p>
+<p>友链yml文件也出问题，冒号后面多打空格、缩进不标准，网站识别不到数据，一直显示暂无友链，规范格式后才成功加载卡片。</p>
+<p>上线我用GitHub Pages托管，不用云服务器和Nginx，一条命令就能生成并推送网页。但缓存很麻烦，每次改完内容必须清理缓存再部署，浏览器也要强制刷新才能看到改动。</p>
+<p>整个过程最大的感受就是不能凭自己想法随便改配置，一定要跟着主题官方规范来。遇到报错不能干等着，多看终端提示、对照文档排查，慢慢学会自己处理环境、语法、页面渲染各类问题。</p>
+<p>搭好的博客能长期存学习笔记，分类标签方便整理内容，也算完成了云计算实验，后续还打算慢慢调整页面配色，加评论、搜索功能，把博客完善得更好用。</p>
+
+        </div>
+
+        <!-- Post license / copyright -->
+        
+          
+
+<div class="post-copyright-box">
+  <div class="copyright-header">
+    <span class="copyright-title">Hexo博客搭建实操心得</span>
+    <a class="copyright-link" href="https://lylq134.github.io/2026/06/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%BF%83%E5%BE%97/" target="_blank" rel="noopener noreferrer">
+      https://lylq134.github.io/2026/06/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%BF%83%E5%BE%97/
+    </a>
+  </div>
+  <div class="copyright-meta">
+    <div class="copyright-meta-item">
+      <span class="meta-label">author</span>
+      <span class="meta-value">余生</span>
+    </div>
+    <div class="copyright-meta-item">
+      <span class="meta-label">发布于</span>
+      <span class="meta-value">2026-06-25</span>
+    </div>
+    <div class="copyright-meta-item">
+      <span class="meta-label">许可协议</span>
+      <span class="meta-value">
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer">
+          CC BY-NC-SA 4.0
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
+
+        
+
+        <!-- Post meta bottom: tags, last modified -->
+        
+
+<footer class="post-meta-bottom">
+  <!-- Tags list -->
+  
+  <div class="post-meta-tags">
+    <i class="fa-solid fa-tags" aria-hidden="true"></i>
+    
+      <a href="/tags/Hexo/" class="post-tag-link">
+        Hexo
+      </a>
+    
+      <a href="/tags/Firefly%E4%B8%BB%E9%A2%98/" class="post-tag-link">
+        Firefly主题
+      </a>
+    
+      <a href="/tags/GitHub-Pages/" class="post-tag-link">
+        GitHub Pages
+      </a>
+    
+  </div>
+  
+
+  <!-- Categories list at bottom -->
+  
+  <div class="post-meta-categories-bottom">
+    <i class="fa-regular fa-folder" aria-hidden="true"></i>
+    
+      <a href="/categories/%E6%84%9F%E6%83%B3/" class="post-category-link">
+        感想
+      </a>
+    
+  </div>
+  
+
+  <!-- Last modified date -->
+  
+  <div class="post-last-modified">
+    <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>
+    最后编辑于 2026-06-25 17:13
+  </div>
+  
+</footer>
+
+      </div>
+
+      <!-- Share buttons -->
+      
+
+      <!-- Prev / Next post navigation -->
+      
+      <nav class="post-navigation" aria-label="文章导航">
+        <div class="post-nav-item post-nav-prev">
+          
+          <a href="/2026/06/25/%E6%88%91%E7%9A%84/" rel="prev" title="从零搭建属于自己的Hexo个人博客全过程">
+            <span class="nav-label">上一篇</span>
+            <span class="nav-title">从零搭建属于自己的Hexo个人博客全过程</span>
+          </a>
+          
+        </div>
+        <div class="post-nav-item post-nav-next">
+          
+        </div>
+      </nav>
+      
+
+      <!-- Related posts -->
+      
+    </article>
+
+    <!-- Comments section -->
+    
+    <section class="post-comments" aria-label="评论">
+      
+<div class="comments-container">
+  <div class="comments-title">评论</div>
+  <div class="giscus-wrapper">
+    <script src="https://giscus.app/client.js"
+      data-repo="lylq134/lylq134.github.io"
+      data-repo-id="R_kgDOTA2BCg"
+      data-category="Announcements"
+      data-category-id="DIC_kwDOTA2BCs4C_xZL"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="1"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+</div>
+
+
+    </section>
+    
+  </main>
+
+  <!-- ===== Right Sidebar ===== -->
+  
+  <aside class="sidebar-right" aria-label="右侧边栏">
+    
+      
+
+<!-- Right sidebar widgets -->
+<div class="sidebar-widgets sidebar-right-widgets">
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+
+<div class="widget stats-widget">
+  <div class="widget-header">站点统计</div>
+  <div class="widget-body">
+    <!-- Posts -->
+    <div class="stat-item">
+      <div class="stat-label">
+        <i class="fa-regular fa-file-lines stat-icon"></i>
+        <span>文章</span>
+      </div>
+      <span class="stat-value">2</span>
+    </div>
+    
+    <!-- Categories -->
+    <div class="stat-item">
+      <div class="stat-label">
+        <i class="fa-regular fa-folder stat-icon"></i>
+        <span>分类</span>
+      </div>
+      <span class="stat-value">2</span>
+    </div>
+    
+    <!-- Tags -->
+    <div class="stat-item">
+      <div class="stat-label">
+        <i class="fa-solid fa-tag stat-icon"></i>
+        <span>标签</span>
+      </div>
+      <span class="stat-value">3</span>
+    </div>
+    
+    <!-- Total Words -->
+    <div class="stat-item">
+      <div class="stat-label">
+        <i class="fa-solid fa-chart-line stat-icon"></i>
+        <span>总字数</span>
+      </div>
+      <span class="stat-value">800</span>
+    </div>
+    
+    <!-- Running Days -->
+    <div class="stat-item">
+      <div class="stat-label">
+        <i class="fa-regular fa-calendar-days stat-icon"></i>
+        <span>运行时长</span>
+      </div>
+      <div>
+        <span class="stat-value" id="site-running-days">--</span>
+        <span class="stat-suffix"> 天</span>
+      </div>
+    </div>
+    
+    <!-- Last Active -->
+    <div class="stat-item">
+      <div class="stat-label">
+        <i class="fa-solid fa-heart-pulse stat-icon"></i>
+        <span>最后活动</span>
+      </div>
+      <div>
+        <span class="stat-value" id="site-last-active" data-latest-date="2026-06-25T04:52:25.000Z">--</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+    
+      
+        
+
+<div class="widget calendar-widget">
+  <div class="widget-header">日历</div>
+  <div class="widget-body">
+    <div class="calendar-container">
+      <div class="flex justify-between items-center mb-4" style="margin-bottom: 1rem;">
+          <button id="prev-month-btn" class="btn-plain rounded-lg w-8 h-8 flex items-center justify-center" style="width: 2rem; height: 2rem; border-radius: var(--radius-medium); border: none; background: none; cursor: pointer;" aria-label="Previous Month">
+              <i class="fa-solid fa-chevron-left text-sm"></i>
+          </button>
+          <div id="current-month-display" class="text-lg font-bold text-neutral-900 dark:text-neutral-100 cursor-pointer hover:text-(--primary) transition-colors select-none" style="font-weight: 700; cursor: pointer; user-select: none;"></div>
+          <div class="flex gap-2" style="display: flex; gap: 0.5rem;">
+              <button id="reset-month-btn" class="btn-plain rounded-lg w-8 h-8 flex items-center justify-center" style="width: 2rem; height: 2rem; border-radius: var(--radius-medium); border: none; background: none; cursor: pointer;" aria-label="Back to Today">
+                  <i class="fa-solid fa-rotate-left text-sm"></i>
+              </button>
+              <button id="next-month-btn" class="btn-plain rounded-lg w-8 h-8 flex items-center justify-center" style="width: 2rem; height: 2rem; border-radius: var(--radius-medium); border: none; background: none; cursor: pointer;" aria-label="Next Month">
+                  <i class="fa-solid fa-chevron-right text-sm"></i>
+              </button>
+          </div>
+      </div>
+      
+      <!-- 日历视图容器 -->
+      <div id="calendar-view-container">
+        <!-- 星期标题 -->
+        <div class="weekdays grid grid-cols-7 gap-1 mb-2" style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.25rem; margin-bottom: 0.5rem;">
+          
+            <div class="text-center text-xs text-neutral-500 dark:text-neutral-400 font-medium" style="text-align: center; font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500;">
+              日
+            </div>
+          
+            <div class="text-center text-xs text-neutral-500 dark:text-neutral-400 font-medium" style="text-align: center; font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500;">
+              一
+            </div>
+          
+            <div class="text-center text-xs text-neutral-500 dark:text-neutral-400 font-medium" style="text-align: center; font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500;">
+              二
+            </div>
+          
+            <div class="text-center text-xs text-neutral-500 dark:text-neutral-400 font-medium" style="text-align: center; font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500;">
+              三
+            </div>
+          
+            <div class="text-center text-xs text-neutral-500 dark:text-neutral-400 font-medium" style="text-align: center; font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500;">
+              四
+            </div>
+          
+            <div class="text-center text-xs text-neutral-500 dark:text-neutral-400 font-medium" style="text-align: center; font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500;">
+              五
+            </div>
+          
+            <div class="text-center text-xs text-neutral-500 dark:text-neutral-400 font-medium" style="text-align: center; font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500;">
+              六
+            </div>
+          
+        </div>
+        
+        <!-- 日历格子（由客户端动态生成） -->
+        <div class="calendar-grid grid grid-cols-7 gap-1 pb-1" id="calendar-grid" style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.25rem; padding-bottom: 0.25rem;">
+          <!-- 将由 JavaScript 填充 -->
+        </div>
+      </div>
+
+      <!-- 月份选择视图 -->
+      <div id="month-view-container" class="grid grid-cols-3 gap-2" style="display: none; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem;">
+        <!-- 将由 JavaScript 填充 -->
+      </div>
+
+      <!-- 年份选择视图 -->
+      <div id="year-view-container" class="grid grid-cols-3 gap-2" style="display: none; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem;">
+        <!-- 将由 JavaScript 填充 -->
+      </div>
+      
+      <!-- 文章列表 -->
+      <div id="calendar-posts" class="mt-3" style="margin-top: 0.75rem;">
+        <div class="border-t border-neutral-200 dark:border-neutral-700 mb-2" id="calendar-posts-divider" style="display: none; border-top: 1px solid var(--line-divider); margin: 0.5rem 0;"></div>
+        <div class="flex flex-col gap-1 max-h-48 overflow-y-auto custom-scrollbar" id="calendar-posts-list" style="display: flex; flex-direction: column; gap: 0.25rem; max-height: 12rem; overflow-y: auto;">
+          <!-- 将由 JavaScript 填充 -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const monthNames = ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
+  const weekDays = ["日","一","二","三","四","五","六"];
+  const yearText = "年";
+  const currentLang = "zh-CN";
+  const calendarDataUrl = "/api/allPostMeta.json";
+  const postUrlPrefix = "/";
+
+  let displayYear = new Date().getFullYear();
+  let displayMonth = new Date().getMonth();
+  let currentView = 'day'; // 'day' | 'month' | 'year'
+  let postDateMap = {};
+  let allPostsData = [];
+  let availableYears = [];
+
+  async function fetchData() {
+    try {
+      if (window.__allPostMetaCache) {
+        allPostsData = window.__allPostMetaCache;
+      } else {
+        const response = await fetch(calendarDataUrl);
+        allPostsData = await response.json();
+        window.__allPostMetaCache = allPostsData;
+      }
+      
+      postDateMap = {};
+      const yearsSet = new Set();
+      allPostsData.forEach(post => {
+        const date = new Date(post.published);
+        const dateKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+        if (!postDateMap[dateKey]) {
+          postDateMap[dateKey] = [];
+        }
+        postDateMap[dateKey].push({ id: post.id, title: post.title, published: post.published, path: post.path });
+        yearsSet.add(date.getFullYear());
+      });
+      
+      availableYears = Array.from(yearsSet).sort((a, b) => b - a);
+      renderCalendar();
+    } catch (error) {
+      console.error("Failed to fetch calendar data", error);
+    }
+  }
+
+  function renderCalendar() {
+    const container = document.getElementById('calendar-view-container');
+    const monthContainer = document.getElementById('month-view-container');
+    const yearContainer = document.getElementById('year-view-container');
+    const postsContainer = document.getElementById('calendar-posts');
+    
+    if (container) container.style.display = currentView === 'day' ? 'block' : 'none';
+    if (monthContainer) monthContainer.style.display = currentView === 'month' ? 'grid' : 'none';
+    if (yearContainer) yearContainer.style.display = currentView === 'year' ? 'grid' : 'none';
+    if (postsContainer) postsContainer.style.display = currentView === 'day' ? 'block' : 'none';
+
+    updateHeader();
+
+    if (currentView === 'day') {
+      renderDayView();
+    } else if (currentView === 'month') {
+      renderMonthView();
+    } else if (currentView === 'year') {
+      renderYearView();
+    }
+  }
+
+  function updateHeader() {
+    const navDisplay = document.getElementById('current-month-display');
+    const resetBtn = document.getElementById('reset-month-btn');
+    const prevBtn = document.getElementById('prev-month-btn');
+    const nextBtn = document.getElementById('next-month-btn');
+    
+    if (navDisplay) {
+      if (currentView === 'day') {
+        if (currentLang.startsWith('zh') || currentLang.startsWith('ja')) {
+          navDisplay.textContent = `${displayYear}${yearText}${monthNames[displayMonth]}`;
+        } else {
+          navDisplay.textContent = `${monthNames[displayMonth]} ${displayYear}`;
+        }
+      } else if (currentView === 'month') {
+        navDisplay.textContent = `${displayYear}${yearText}`;
+      } else if (currentView === 'year') {
+        navDisplay.textContent = yearText;
+      }
+    }
+
+    if (resetBtn) {
+      const now = new Date();
+      const isCurrent = displayYear === now.getFullYear() && displayMonth === now.getMonth();
+      resetBtn.style.display = (currentView === 'day' && isCurrent) ? 'none' : 'flex';
+    }
+    
+    if (prevBtn) prevBtn.style.visibility = currentView === 'year' ? 'hidden' : 'visible';
+    if (nextBtn) nextBtn.style.visibility = currentView === 'year' ? 'hidden' : 'visible';
+  }
+
+  function renderDayView() {
+    const now = new Date();
+    const currentYear = displayYear;
+    const currentMonth = displayMonth;
+    const currentDate = now.getDate();
+    const isCurrentMonth = currentYear === now.getFullYear() && currentMonth === now.getMonth();
+    
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    
+    const calendarGrid = document.getElementById('calendar-grid');
+    if (!calendarGrid) return;
+    
+    const calendarDays = [];
+    for (let i = 0; i < firstDayOfMonth; i++) {
+      calendarDays.push({ day: null, hasPost: false, count: 0, dateKey: "" });
+    }
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const posts = postDateMap[dateKey] || [];
+      const count = posts.length;
+      calendarDays.push({ day, hasPost: count > 0, count, dateKey });
+    }
+    
+    calendarGrid.innerHTML = calendarDays.map(({day, hasPost, count, dateKey}) => {
+      const isToday = day === currentDate && isCurrentMonth;
+      const classes = ["calendar-day aspect-square flex items-center justify-center rounded text-sm relative cursor-pointer"];
+      
+      if (!day) {
+        classes.push("text-neutral-400 dark:text-neutral-600");
+      } else if (!hasPost) {
+        classes.push("text-neutral-700 dark:text-neutral-300");
+      } else {
+        classes.push("text-neutral-900 dark:text-neutral-100 font-bold");
+      }
+      if (isToday) {
+        classes.push("today-highlight");
+      }
+      
+      return `
+        <div class="${classes.join(' ')}" data-date="${dateKey}" data-has-post="${hasPost}">
+          ${day || ''}
+          ${hasPost ? '<span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full" style="background-color: var(--primary);"></span>' : ''}
+          ${hasPost && count > 1 ? `<span class="absolute top-0 right-0 text-[10px] font-bold" style="color: var(--primary);">${count}</span>` : ''}
+        </div>
+      `;
+    }).join('');
+    
+    const currentMonthPosts = allPostsData.filter(post => {
+      const date = new Date(post.published);
+      return date.getFullYear() === currentYear && date.getMonth() === currentMonth;
+    });
+    
+    showMonthlyPosts(currentMonthPosts);
+    setupClickHandlers(currentMonthPosts);
+  }
+
+  function renderMonthView() {
+    const container = document.getElementById('month-view-container');
+    if (!container) return;
+
+    const monthsWithPosts = new Set();
+    allPostsData.forEach(post => {
+      const date = new Date(post.published);
+      if (date.getFullYear() === displayYear) {
+        monthsWithPosts.add(date.getMonth());
+      }
+    });
+
+    container.innerHTML = monthNames.map((name, index) => {
+      const isCurrent = index === displayMonth;
+      const hasPost = monthsWithPosts.has(index);
+      const classes = ["p-2 text-center text-sm rounded cursor-pointer hover:bg-(--btn-plain-bg-hover) transition-colors relative"];
+      if (isCurrent) {
+        classes.push("text-(--primary) font-bold bg-(--btn-plain-bg-hover)");
+      } else {
+        classes.push("text-neutral-700 dark:text-neutral-300");
+      }
+      const dotHtml = hasPost ? '<span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full" style="background-color: var(--primary);"></span>' : '';
+      return `<div class="${classes.join(' ')}" data-month="${index}">${name}${dotHtml}</div>`;
+    }).join('');
+
+    container.querySelectorAll('[data-month]').forEach(el => {
+      el.addEventListener('click', () => {
+        displayMonth = parseInt(el.getAttribute('data-month'));
+        currentView = 'day';
+        renderCalendar();
+      });
+    });
+  }
+
+  function renderYearView() {
+    const container = document.getElementById('year-view-container');
+    if (!container) return;
+
+    container.innerHTML = availableYears.map(year => {
+      const isCurrent = year === displayYear;
+      const classes = ["p-2 text-center text-sm rounded cursor-pointer hover:bg-(--btn-plain-bg-hover) transition-colors relative"];
+      if (isCurrent) {
+        classes.push("text-(--primary) font-bold bg-(--btn-plain-bg-hover)");
+      } else {
+        classes.push("text-neutral-700 dark:text-neutral-300");
+      }
+      return `<div class="${classes.join(' ')}" data-year="${year}">${year}<span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full" style="background-color: var(--primary);"></span></div>`;
+    }).join('');
+
+    container.querySelectorAll('[data-year]').forEach(el => {
+      el.addEventListener('click', () => {
+        displayYear = parseInt(el.getAttribute('data-year'));
+        currentView = 'month';
+        renderCalendar();
+      });
+    });
+  }
+  
+  function showMonthlyPosts(currentMonthPosts) {
+    const postsWrapper = document.getElementById('calendar-posts');
+    const postsList = document.getElementById('calendar-posts-list');
+    const divider = document.getElementById('calendar-posts-divider');
+
+    if (postsWrapper) {
+      postsWrapper.style.display = currentMonthPosts.length > 0 ? 'block' : 'none';
+    }
+    
+    if (postsList) {
+      postsList.innerHTML = currentMonthPosts.map(post => {
+        const date = new Date(post.published);
+        const dateStr = `${date.getMonth() + 1}-${date.getDate()}`;
+        return `
+          <a href="${post.path}" class="flex justify-between items-center text-sm text-neutral-700 dark:text-neutral-300 hover:text-(--primary) dark:hover:text-(--primary) transition-colors px-2 py-1 rounded hover:bg-(--btn-plain-bg-hover)" style="text-decoration: none; padding: 0.25rem 0.5rem; display: flex;">
+            <span class="truncate" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; max-width: 80%;">${post.title}</span>
+            <span class="text-xs text-neutral-500 dark:text-neutral-400 ml-2 whitespace-nowrap">${dateStr}</span>
+          </a>
+        `}).join('');
+      
+      if (divider) {
+        divider.style.display = currentMonthPosts.length > 0 ? 'block' : 'none';
+      }
+    }
+  }
+  
+  function setupClickHandlers(currentMonthPosts) {
+    const postsWrapper = document.getElementById('calendar-posts');
+    const calendarDays = document.querySelectorAll('.calendar-day[data-date]');
+    const postsList = document.getElementById('calendar-posts-list');
+    const divider = document.getElementById('calendar-posts-divider');
+    
+    let currentSelectedDay = null;
+    
+    calendarDays.forEach(dayElement => {
+      dayElement.addEventListener('click', () => {
+        const dateKey = dayElement.getAttribute('data-date');
+        const hasPost = dayElement.getAttribute('data-has-post') === 'true';
+        
+        if (!hasPost || !dateKey) return;
+        
+        if (currentSelectedDay === dayElement) {
+          dayElement.classList.remove('calendar-day-selected');
+          currentSelectedDay = null;
+          showMonthlyPosts(currentMonthPosts);
+          return;
+        }
+        
+        if (currentSelectedDay) {
+          currentSelectedDay.classList.remove('calendar-day-selected');
+        }
+        
+        dayElement.classList.add('calendar-day-selected');
+        currentSelectedDay = dayElement;
+        
+        const posts = postDateMap[dateKey] || [];
+        
+        if (posts.length > 0 && postsList) {
+          if (postsWrapper) {
+            postsWrapper.style.display = 'block';
+          }
+
+          postsList.innerHTML = posts.map(post => {
+            const date = new Date(post.published);
+            const dateStr = `${date.getMonth() + 1}-${date.getDate()}`;
+            return `
+              <a href="${post.path}" class="flex justify-between items-center text-sm text-neutral-700 dark:text-neutral-300 hover:text-(--primary) dark:hover:text-(--primary) transition-colors px-2 py-1 rounded hover:bg-(--btn-plain-bg-hover)" style="text-decoration: none; padding: 0.25rem 0.5rem; display: flex;">
+                <span class="truncate" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; max-width: 80%;">${post.title}</span>
+                <span class="text-xs text-neutral-500 dark:text-neutral-400 ml-2 whitespace-nowrap">${dateStr}</span>
+              </a>
+            `}).join('');
+          
+          if (divider) {
+            divider.style.display = 'block';
+          }
+        }
+      });
+    });
+  }
+
+  function changeMonth(delta) {
+    if (currentView === 'day') {
+      displayMonth += delta;
+      if (displayMonth > 11) {
+        displayMonth = 0;
+        displayYear++;
+      } else if (displayMonth < 0) {
+        displayMonth = 11;
+        displayYear--;
+      }
+    } else if (currentView === 'month') {
+      displayYear += delta;
+    }
+    renderCalendar();
+  }
+
+  function resetToToday() {
+    const now = new Date();
+    displayYear = now.getFullYear();
+    displayMonth = now.getMonth();
+    currentView = 'day';
+    renderCalendar();
+  }
+
+  function initCalendar() {
+    const now = new Date();
+    displayYear = now.getFullYear();
+    displayMonth = now.getMonth();
+    currentView = 'day';
+    
+    fetchData();
+    
+    const prevBtn = document.getElementById('prev-month-btn');
+    const nextBtn = document.getElementById('next-month-btn');
+    const resetBtn = document.getElementById('reset-month-btn');
+    const navDisplay = document.getElementById('current-month-display');
+    
+    if (prevBtn) prevBtn.onclick = () => changeMonth(-1);
+    if (nextBtn) nextBtn.onclick = () => changeMonth(1);
+    if (resetBtn) resetBtn.onclick = () => resetToToday();
+    
+    if (navDisplay) {
+      navDisplay.onclick = () => {
+        if (currentView === 'day') {
+          currentView = 'month';
+        } else if (currentView === 'month') {
+          currentView = 'year';
+        }
+        renderCalendar();
+      };
+    }
+  }
+  
+  // Set up initialization
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCalendar);
+  } else {
+    initCalendar();
+  }
+
+  // Swup/Pjax support
+  document.addEventListener("pjax:complete", initCalendar);
+  document.addEventListener("swup:contentReplaced", initCalendar);
+})();
+</script>
+
+      
+    
+  
+</div>
+
+    
+    
+      
+
+
+<div id="toc" class="toc-widget">
+  <div class="toc-header">
+    <span>目录</span>
+  </div>
+  <div class="toc-body" id="toc-body">
+    <!-- Populated by client-side JavaScript -->
+  </div>
+</div>
+
+
+    
+    
+  </aside>
+  
+
+  <!-- Floating TOC (always available via JS, appears as a floating widget on scroll) -->
+  
+
+  
+
+<footer id="site-footer" class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+
+    
+    <div class="footer-license">
+      <span>
+        <i class="fa-brands fa-creative-commons"></i>
+        <i class="fa-brands fa-creative-commons-by"></i>
+        <i class="fa-brands fa-creative-commons-nc"></i>
+        <i class="fa-brands fa-creative-commons-sa"></i>
+      </span>
+      <span class="license-text">
+        
+        本作品采用 CC BY-NC-SA 4.0 许可协议
+        
+      </span>
+    </div>
+    
+
+    <div class="footer-copyright">
+      <span>&copy; 2026 晚萤赴长路</span>
+      
+      <span class="footer-author">由 余生</span>
+      
+    </div>
+
+    
+
+    
+    <div class="footer-powered-by">
+      <span>技术支持 <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a></span>
+      <span class="footer-separator">|</span>
+      <span>theme <a href="https://github.com/LKDenchin/hexo-theme-firefly" target="_blank" rel="noopener noreferrer">Firefly</a></span>
+    </div>
+    
+
+    
+    <div class="footer-visitor-counter">
+      <span id="busuanzi_container_site_uv" class="visitor-count-item">
+        <i class="fa-regular fa-user"></i>
+        <span id="busuanzi_value_site_uv">-</span> 访客
+      </span>
+      <span class="footer-separator">|</span>
+      <span id="busuanzi_container_site_pv" class="visitor-count-item">
+        <i class="fa-regular fa-eye"></i>
+        <span id="busuanzi_value_site_pv">-</span> 浏览
+      </span>
+    </div>
+    
+
+  </div>
+</footer>
+
+</div>
+
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="search-modal" role="dialog" aria-label="搜索" aria-hidden="true">
+    <div class="search-modal-backdrop search-backdrop"></div>
+    <div class="search-modal-content">
+      <div class="search-input-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-input-icon"></i>
+        <input type="text" id="search-input" class="search-input" placeholder="搜索文章..." autocomplete="off">
+        <button id="search-close" class="search-close-btn close-btn" aria-label="关闭">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results">
+        <div class="search-hints">
+          <span>输入关键词搜索</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="display-settings-panel" class="display-settings-panel float-panel closed">
+  <!-- Theme Color Section -->
+  <div class="settings-section">
+    <div class="settings-section-title">主题色</div>
+    <div class="settings-label">
+      <span>色相</span>
+      <button class="settings-reset-btn" data-reset-section="theme">重置</button>
+    </div>
+    <input type="range" class="hue-slider" min="0" max="360" value="165">
+  </div>
+
+  <!-- Feature Toggles Section -->
+  <div class="settings-section">
+    <div class="settings-section-title">功能开关</div>
+    <div class="settings-label">
+      <span>水波纹动画</span>
+      <label class="settings-toggle">
+        <input type="checkbox" id="toggle-waves" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="settings-label">
+      <span>渐变过渡</span>
+      <label class="settings-toggle">
+        <input type="checkbox" id="toggle-gradient" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="settings-label">
+      <span>横幅标题</span>
+      <label class="settings-toggle">
+        <input type="checkbox" id="toggle-banner-title" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="settings-label">
+      <span>樱花特效</span>
+      <label class="settings-toggle">
+        <input type="checkbox" id="toggle-sakura" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="settings-label">
+      <span>横幅轮播</span>
+      <label class="settings-toggle">
+        <input type="checkbox" id="toggle-banner-carousel">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Post List Layout Section -->
+  <div class="settings-section">
+    <div class="settings-section-title">文章布局</div>
+    <div class="settings-label">
+      <span>布局模式</span>
+      <button class="settings-reset-btn" data-reset-section="layout">重置</button>
+    </div>
+    <div class="layout-buttons" style="display:flex;gap:0.5rem;">
+      <button data-layout="list" class="active" style="flex:1;padding:0.375rem 0.75rem;border:1px solid var(--line-divider);border-radius:var(--radius-medium);background:var(--btn-regular-bg);color:var(--text-secondary);cursor:pointer;">列表</button>
+      <button data-layout="grid" style="flex:1;padding:0.375rem 0.75rem;border:1px solid var(--line-divider);border-radius:var(--radius-medium);background:var(--btn-regular-bg);color:var(--text-secondary);cursor:pointer;">网格</button>
+    </div>
+  </div>
+</div>
+
+  
+
+<!-- Core Scripts -->
+<script src="/js/core/theme.js"></script>
+<script src="/js/core/wallpaper.js"></script>
+<script src="/js/core/settings.js"></script>
+<script src="/js/core/icons.js"></script>
+
+<!-- Effect Scripts -->
+<script src="/js/effects/typewriter.js"></script>
+
+<script src="/js/effects/sakura.js"></script>
+
+
+<script src="/js/effects/banner-carousel.js"></script>
+
+<script src="/js/effects/water-waves.js"></script>
+
+<!-- UI Scripts -->
+<script src="/js/ui/display-settings.js"></script>
+<script>
+  window.__SEARCH_PATH__ = '/local-search.xml';
+</script>
+<script src="/js/ui/search.js"></script>
+<script src="/js/ui/toc.js"></script>
+<script src="/js/ui/scroll.js"></script>
+<script src="/js/ui/back-to-top.js"></script>
+
+<script src="/js/ui/post-layout.js"></script>
+
+
+<!-- Feature Scripts -->
+
+<script src="/js/features/music-player.js"></script>
+
+
+
+<script src="/js/features/fancybox.js"></script>
+
+
+
+<!-- Boot Script -->
+<script src="/js/boot.js"></script>
+
+<!-- ==================== CDN Dependencies ==================== -->
+
+<!-- Highlight.js - Code Syntax Highlighting -->
+
+
+<!-- KaTeX / MathJax - Math Rendering -->
+
+
+<!-- Mermaid - Diagram Rendering -->
+
+
+<!-- Fancybox - Image Lightbox -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    Fancybox.bind('[data-fancybox]', {
+      // Fancybox options
+    });
+  });
+</script>
+
+
+<!-- Character Models - Live2D / Spine -->
+
+
+<!-- APlayer / Meting - Music Player -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
+<!-- Busuanzi - Visitor Counter -->
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- Code Copy Buttons -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Handle Hexo's figure.highlight code blocks
+    document.querySelectorAll('.post-content figure.highlight').forEach(function(fig) {
+      var btn = document.createElement('button');
+      btn.className = 'code-copy-btn';
+      btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+      btn.title = '复制代码';
+      fig.appendChild(btn);
+      
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var codeEl = fig.querySelector('.code pre code') || fig.querySelector('.code pre') || fig.querySelector('pre');
+        var text = codeEl ? codeEl.textContent : '';
+        navigator.clipboard.writeText(text).then(function() {
+          btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+    });
+
+    // Handle plain pre blocks (for non-Hexo code blocks)
+    document.querySelectorAll('.post-content pre:not(figure.highlight pre)').forEach(function(pre) {
+      if (pre.closest('.code-block-wrapper') || pre.closest('.code-copy-btn')) return;
+      var wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+      
+      var btn = document.createElement('button');
+      btn.className = 'code-copy-btn';
+      btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+      btn.title = '复制代码';
+      wrapper.appendChild(btn);
+      
+      btn.addEventListener('click', function() {
+        var code = pre.querySelector('code') || pre;
+        navigator.clipboard.writeText(code.textContent).then(function() {
+          btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+    });
+  });
+</script>
+
+<!-- Site Stats Fallback & Running Days Calculation -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Site running days calculation (use theme site start date first)
+    var runningDaysEl = document.getElementById('site-running-days');
+    if (runningDaysEl) {
+      var startDateStr = '2026-06-22';
+      if (startDateStr) {
+        var diff = Date.now() - new Date(startDateStr).getTime();
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        runningDaysEl.textContent = days > 0 ? days : 1;
+      }
+    }
+
+    // 1b. Last active calculation
+    var lastActiveEl = document.getElementById('site-last-active');
+    if (lastActiveEl) {
+      var latestDateStr = lastActiveEl.getAttribute('data-latest-date');
+      if (latestDateStr) {
+        var diffActive = Date.now() - new Date(latestDateStr).getTime();
+        var daysActive = Math.floor(diffActive / (1000 * 60 * 60 * 24));
+        if (daysActive <= 0) {
+          lastActiveEl.textContent = 'today';
+        } else {
+          lastActiveEl.textContent = daysActive + ' ' + '天' + '前';
+        }
+      }
+    }
+
+    // 2. Busuanzi fallback for visitor / pageview stats
+    setTimeout(function() {
+      var uvEl = document.getElementById('busuanzi_value_site_uv');
+      var pvEl = document.getElementById('busuanzi_value_site_pv');
+      
+      var isLocal = window.location.hostname === 'localhost' || 
+                     window.location.hostname === '127.0.0.1' || 
+                     window.location.protocol === 'file:';
+      
+      // UV fallback
+      if (uvEl && (uvEl.textContent === '-' || uvEl.textContent === '' || isLocal)) {
+        var localUv = localStorage.getItem('site_uv');
+        if (!localUv) {
+          localUv = Math.floor(Math.random() * 500) + 1200; // Realistic starting number
+        } else {
+          localUv = parseInt(localUv, 10);
+        }
+        // Increment UV once per session
+        if (!sessionStorage.getItem('uv_session_counted')) {
+          localUv += 1;
+          sessionStorage.setItem('uv_session_counted', 'true');
+          localStorage.setItem('site_uv', localUv);
+        }
+        uvEl.textContent = localUv;
+        var uvContainer = document.getElementById('busuanzi_container_site_uv');
+        if (uvContainer) uvContainer.style.display = 'inline';
+      }
+      
+      // PV fallback
+      if (pvEl && (pvEl.textContent === '-' || pvEl.textContent === '' || isLocal)) {
+        var localPv = localStorage.getItem('site_pv');
+        if (!localPv) {
+          localPv = Math.floor(Math.random() * 2000) + 3800; // Realistic starting number
+        } else {
+          localPv = parseInt(localPv, 10);
+        }
+        // Increment PV on every load
+        localPv += 1;
+        localStorage.setItem('site_pv', localPv);
+        pvEl.textContent = localPv;
+        var pvContainer = document.getElementById('busuanzi_container_site_pv');
+        if (pvContainer) pvContainer.style.display = 'inline';
+      }
+    }, 1500);
+  });
+</script>
+
+
+
+</body>
+</html>

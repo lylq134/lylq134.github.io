@@ -1,0 +1,1012 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-wallpaper-mode="banner" style="--bannerOffset: 15vh; --banner-height-home: 55vh; --banner-height: 50vh; --configHue: 165; --page-width: 100rem;">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+<title>分类 - 晚萤赴长路</title>
+
+
+<meta name="description" content="个人技术随笔、生活记录博客">
+
+
+<meta name="keywords" content="Hexo,Blog,Technical Notes">
+
+
+<meta name="author" content="余生">
+
+
+<!-- Open Graph -->
+<meta property="og:title" content="分类 - 晚萤赴长路">
+<meta property="og:description" content="个人技术随笔、生活记录博客">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lylq134.github.io/categories/index.html">
+<meta property="og:site_name" content="晚萤赴长路">
+
+<meta property="og:image" content="/img/favicon.ico">
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="分类 - 晚萤赴长路">
+<meta name="twitter:description" content="个人技术随笔、生活记录博客">
+
+<meta name="twitter:image" content="/img/favicon.ico">
+
+
+<!-- Favicon -->
+
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.ico">
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.ico">
+  
+  
+  <link rel="apple-touch-icon" href="/img/favicon.ico">
+  
+  
+  
+  
+
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/banner.css">
+<link rel="stylesheet" href="/css/cards.css">
+<link rel="stylesheet" href="/css/post.css">
+<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/code.css">
+<link rel="stylesheet" href="/css/widgets.css">
+<link rel="stylesheet" href="/css/toc.css">
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/comments.css">
+<link rel="stylesheet" href="/css/effects.css">
+<link rel="stylesheet" href="/css/scrollbar.css">
+<link rel="stylesheet" href="/css/display-settings.css">
+<link rel="stylesheet" href="/css/water-waves.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<!-- Analytics -->
+
+
+
+
+
+
+
+
+<!-- RSS -->
+
+<link rel="alternate" href="/atom.xml" title="晚萤赴长路" type="application/atom+xml">
+
+
+<!-- Typewriter CSS -->
+
+
+<!-- Font Preloading -->
+
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lylq134.github.io/categories/index.html">
+
+<!-- No-Referrer Domain Script -->
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="min-h-screen  enable-banner sticky-navbar enable-card-border " style="--bannerOffset: 15vh; --banner-height-home: 55vh; --banner-height: 50vh; --configHue: 165; --page-width: 100rem;">
+  <script>
+    (function() {
+      var BANNER_HEIGHT_EXTEND = 6;
+      var configHue = 165;
+      var defaultMode = 'system';
+      var defaultWallpaperMode = 'banner';
+      var wallSwitchable = false;
+      var cardTransparentOpacity = 0.5;
+
+      // 1. Set theme
+      var storedTheme = localStorage.getItem('theme');
+      var themeToApply = storedTheme || defaultMode;
+      if (themeToApply === 'system') {
+        themeToApply = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      if (themeToApply === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      document.documentElement.setAttribute('data-theme', themeToApply);
+
+      // 2. Set hue
+      var storedHue = localStorage.getItem('hue');
+      var hueToApply = storedHue !== null ? storedHue : configHue;
+      document.documentElement.style.setProperty('--hue', hueToApply);
+
+      // 3. Set wallpaper mode
+      var wallpaperModeToApply = 'banner';
+      document.documentElement.setAttribute('data-wallpaper-mode', wallpaperModeToApply);
+
+      // 4. Set card opacity (no longer needed for overlay but keeping var)
+      
+      // 5. Calculate --banner-height-extend
+      var vh = window.innerHeight;
+      var extend = BANNER_HEIGHT_EXTEND * 4;
+      var bannerHeightExtend = extend > vh ? Math.floor(vh / 4) * 4 : extend;
+      if (bannerHeightExtend === 0) bannerHeightExtend = 4;
+      document.documentElement.style.setProperty('--banner-height-extend', bannerHeightExtend + 'px');
+
+      // 6. Apply wallpaper and content positioning when DOM is ready
+      requestAnimationFrame(function() {
+        var isHomePage = false;
+        var body = document.body;
+        var wrapper = document.getElementById('wallpaper-wrapper');
+        var mainContentWrapper = document.querySelector('.z-30.pointer-events-none');
+        var isMobile = window.innerWidth < 1024;
+        var isMobileNonHome = isMobile && !isHomePage;
+
+        // Reset wallpaper classes on body
+        body.classList.remove('enable-banner', 'no-banner-layout', 'wallpaper-transparent');
+
+        // Always apply banner mode
+        body.classList.add('enable-banner');
+        if (wrapper) {
+          wrapper.classList.remove('wallpaper-overlay', 'wallpaper-fullscreen');
+          if (isMobileNonHome) {
+            wrapper.style.display = 'none';
+            wrapper.classList.add('mobile-hide-banner');
+          } else {
+            wrapper.style.display = 'block';
+            wrapper.classList.remove('mobile-hide-banner');
+          }
+        }
+
+        // Apply main content positioning
+        if (mainContentWrapper) {
+          mainContentWrapper.style.setProperty("transition", "none", "important");
+
+          if (isMobileNonHome) {
+            mainContentWrapper.classList.add('mobile-main-no-banner');
+          } else {
+            mainContentWrapper.classList.remove('mobile-main-no-banner');
+          }
+
+          if (isMobile && isHomePage) {
+            mainContentWrapper.style.removeProperty('top');
+            mainContentWrapper.style.position = '';
+            mainContentWrapper.style.zIndex = '';
+            mainContentWrapper.style.setProperty('margin-top', '0', 'important');
+          } else if (isMobileNonHome) {
+            mainContentWrapper.style.setProperty('top', '5.5rem', 'important');
+            mainContentWrapper.style.position = '';
+            mainContentWrapper.style.zIndex = '';
+            mainContentWrapper.style.setProperty('margin-top', '0', 'important');
+          } else {
+            var targetTop = isHomePage ? 'calc(var(--banner-height-home) - 7.5rem)' : 'calc(var(--banner-height) - 4rem)';
+            mainContentWrapper.style.setProperty('top', targetTop, 'important');
+            mainContentWrapper.style.position = '';
+            mainContentWrapper.style.zIndex = '';
+            mainContentWrapper.style.setProperty('margin-top', '0', 'important');
+          }
+
+          // Make page visible now that positions are set
+          mainContentWrapper.style.visibility = 'visible';
+
+          requestAnimationFrame(function() {
+            mainContentWrapper.style.removeProperty('transition');
+          });
+        }
+
+        // Banner title overlay visibility
+        var bannerTextOverlay = document.querySelector('.home-text-overlay');
+        if (bannerTextOverlay) {
+          if (isHomePage) {
+            bannerTextOverlay.classList.remove('hidden');
+          } else {
+            bannerTextOverlay.classList.add('hidden');
+          }
+        }
+      });
+
+      // 7. Set additional data attributes from localStorage
+      if (localStorage.getItem('wavesEnabled') !== null) {
+        document.documentElement.setAttribute('data-waves-enabled', localStorage.getItem('wavesEnabled'));
+      }
+      if (localStorage.getItem('gradientEnabled') !== null) {
+        document.documentElement.setAttribute('data-gradient-enabled', localStorage.getItem('gradientEnabled'));
+      }
+      if (localStorage.getItem('bannerTitleEnabled') !== null) {
+        document.documentElement.setAttribute('data-banner-title-enabled', localStorage.getItem('bannerTitleEnabled'));
+      }
+      if (localStorage.getItem('sakuraEnabled') !== null) {
+        document.documentElement.setAttribute('data-sakura-enabled', localStorage.getItem('sakuraEnabled'));
+      }
+    })();
+  </script>
+
+  <!-- Navbar -->
+  <div id="top-row" class="z-50 pointer-events-none relative transition-all duration-700 mx-auto w-full xl:w-[92vw] max-w-[var(--page-width)] px-3 md:px-4">
+    <div id="navbar-wrapper" class="pointer-events-auto transition-all sticky top-0">
+      
+
+<nav id="navbar"
+     class="navbar sticky transparent"
+     data-transparent="true"
+     role="navigation"
+     aria-label="主导航">
+
+  <div>
+    <div class="navbar-inner">
+    <!-- Left: Logo + Site Title -->
+    <div class="navbar-brand">
+      <a href="/" class="navbar-logo-link" aria-label="晚萤赴长路 - 首页">
+        
+        <span class="navbar-title">晚萤赴长路</span>
+      </a>
+    </div>
+
+    <!-- Center: Menu Links -->
+    <div class="navbar-menu" id="navbar-menu" role="menubar">
+      <ul class="navbar-links">
+        <!-- Home (LinkPreset.Home) -->
+        <li class="navbar-link-item" role="none">
+          <a href="/" class="navbar-link" role="menuitem">
+            <i class="fa-solid fa-house"></i>
+            <span>首页</span>
+          </a>
+        </li>
+
+        <!-- Archive (LinkPreset.Archive) -->
+        <li class="navbar-link-item" role="none">
+          <a href="/archives" class="navbar-link" role="menuitem">
+            <i class="fa-solid fa-box-archive"></i>
+            <span>归档</span>
+          </a>
+        </li>
+
+        <!-- Categories -->
+        <li class="navbar-link-item" role="none">
+          <a href="/categories" class="navbar-link" role="menuitem">
+            <i class="fa-regular fa-folder"></i>
+            <span>分类</span>
+          </a>
+        </li>
+
+        <!-- Tags -->
+        <li class="navbar-link-item" role="none">
+          <a href="/tags" class="navbar-link" role="menuitem">
+            <i class="fa-solid fa-tags"></i>
+            <span>标签</span>
+          </a>
+        </li>
+
+        <!-- About -->
+        <li class="navbar-link-item" role="none">
+          <a href="/about" class="navbar-link" role="menuitem">
+            <i class="fa-solid fa-user"></i>
+            <span>关于</span>
+          </a>
+        </li>
+
+        <!-- Friends -->
+        
+        <li class="navbar-link-item" role="none">
+          <a href="/friends" class="navbar-link" role="menuitem">
+            <i class="fa-solid fa-users"></i>
+            <span>友链</span>
+          </a>
+        </li>
+        
+
+
+
+        <!-- Custom Nav Links / Dropdown Groups -->
+        
+      </ul>
+    </div>
+
+    <!-- Right Side Buttons -->
+    <div class="navbar-actions">
+      <!-- Theme Toggle (Light/Dark/System) -->
+      <button id="theme-toggle" class="navbar-action-btn theme-switch-btn" aria-label="切换主题" title="切换主题">
+        <i class="fa-solid fa-sun theme-icon-light sun-icon"></i>
+        <i class="fa-solid fa-moon theme-icon-dark moon-icon"></i>
+      </button>
+
+      <!-- Display Settings Toggle -->
+      <button id="display-settings-toggle" class="navbar-action-btn display-settings-toggle" aria-label="显示设置" title="显示设置">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+
+      <!-- Search Toggle -->
+      <button id="search-toggle" class="navbar-action-btn search-toggle-btn" aria-label="搜索" title="搜索">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+
+      <!-- Mobile Hamburger Menu -->
+      <button id="mobile-menu-toggle" class="navbar-action-btn mobile-menu-btn" aria-label="切换菜单" aria-expanded="false" aria-controls="navbar-menu">
+        <i class="fa-solid fa-bars hamburger-icon"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+    </div>
+  </div>
+
+  <!-- Wallpaper / Banner -->
+  
+
+<div id="wallpaper-wrapper">
+  
+  <!-- Banner Mode: Image slides with Ken Burns effect -->
+  <div id="banner-images" class="banner-images-container" data-interval="5000">
+    
+      
+      <div class="banner-image-slide active" data-index="0">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m1.avif">
+          
+          <img src="/img/DesktopWallpaper/d1.avif" alt="Banner 1"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="eager">
+        </picture>
+        
+      </div>
+      
+      <div class="banner-image-slide" data-index="1">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m2.avif">
+          
+          <img src="/img/DesktopWallpaper/d2.avif" alt="Banner 2"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="lazy">
+        </picture>
+        
+      </div>
+      
+      <div class="banner-image-slide" data-index="2">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m3.avif">
+          
+          <img src="/img/DesktopWallpaper/d3.avif" alt="Banner 3"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="lazy">
+        </picture>
+        
+      </div>
+      
+      <div class="banner-image-slide" data-index="3">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m4.avif">
+          
+          <img src="/img/DesktopWallpaper/d4.avif" alt="Banner 4"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="lazy">
+        </picture>
+        
+      </div>
+      
+      <div class="banner-image-slide" data-index="4">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m5.avif">
+          
+          <img src="/img/DesktopWallpaper/d5.avif" alt="Banner 5"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="lazy">
+        </picture>
+        
+      </div>
+      
+      <div class="banner-image-slide" data-index="5">
+        
+        <picture>
+          
+          <source media="(max-width: 768px)" srcset="/img/MobileWallpaper/m6.avif">
+          
+          <img src="/img/DesktopWallpaper/d6.avif" alt="Banner 6"
+               class="banner-img banner-img-desktop"
+               data-object-position="center center"
+               loading="lazy">
+        </picture>
+        
+      </div>
+      
+    
+  </div>
+  
+
+  
+
+  
+
+  
+
+  <!-- Banner Dim Overlay -->
+  <div id="banner-dim-container" style="opacity: 0.45;"></div>
+
+  <!-- Carousel Preload Images (hidden) -->
+  
+  <div id="banner-carousel-images" style="display: none;" aria-hidden="true">
+    
+      
+        
+      
+        
+        <img src="/img/DesktopWallpaper/d2.avif" alt="" loading="lazy">
+        
+      
+        
+        <img src="/img/DesktopWallpaper/d3.avif" alt="" loading="lazy">
+        
+      
+        
+        <img src="/img/DesktopWallpaper/d4.avif" alt="" loading="lazy">
+        
+      
+        
+        <img src="/img/DesktopWallpaper/d5.avif" alt="" loading="lazy">
+        
+      
+        
+        <img src="/img/DesktopWallpaper/d6.avif" alt="" loading="lazy">
+        
+      
+    
+  </div>
+  
+
+  <!-- Banner Overlay Container -->
+  <div id="banner-overlay-container">
+    
+
+    
+
+    
+    <!-- Page Title Overlay -->
+    <div class="page-title-overlay">
+      
+      <h1 class="page-title">分类标题</h1>
+      
+      <div class="page-subtitle">共 2 个分类</div>
+      
+    </div>
+    
+  </div>
+
+  <!-- Water Waves SVG (4 layers) -->
+  <svg class="water-waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+    <defs>
+      <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+    </defs>
+    <g>
+      <use href="#wave-path" x="50" y="0" class="wave-1"/>
+      <use href="#wave-path" x="50" y="4" class="wave-2"/>
+      <use href="#wave-path" x="50" y="7" class="wave-3"/>
+      <use href="#wave-path" x="50" y="10" class="wave-4"/>
+    </g>
+  </svg>
+
+  <!-- Gradient Transition -->
+  <div id="banner-gradient" class="banner-gradient"></div>
+
+  <!-- Scroll Down Indicator (fullscreen mode, homepage only) -->
+  
+</div>
+
+
+  <!-- Main Content Area with grid wrappers -->
+  <div id="main-content-wrapper" class="absolute w-full z-30 pointer-events-none mobile-main-no-banner">
+    <div class="relative w-full xl:w-[92vw] max-w-[var(--page-width)] mx-auto pointer-events-auto">
+      
+
+<div id="main-grid" class="main-grid-layout has-no-sidebar">
+  <main id="main-content" class="page-container full-width">
+    
+<div class="content-nav-bar card-base">
+  <!-- Home button -->
+  <a href="/" class="content-nav-item content-nav-home" aria-label="Home" title="首页">
+    <i class="fa-solid fa-house"></i>
+  </a>
+  
+  <!-- Archive button -->
+  <a href="/archives" class="content-nav-item">
+    <span class="nav-item-label">归档</span>
+    <span class="nav-item-count">2</span>
+  </a>
+
+  <!-- Dynamic Categories -->
+  
+    <a href="/categories/%E6%84%9F%E6%83%B3/" class="content-nav-item">
+      <span class="nav-item-label">感想</span>
+      <span class="nav-item-count">1</span>
+    </a>
+  
+    <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97%E8%AF%BE%E5%A0%82/" class="content-nav-item">
+      <span class="nav-item-label">云计算课堂</span>
+      <span class="nav-item-count">1</span>
+    </a>
+  
+</div>
+
+    <article class="page-content">
+      <!-- ===== About Page ===== -->
+      
+        
+        <header class="page-header">
+          <h1 class="page-title">分类</h1>
+        </header>
+        
+
+        <div class="markdown-body custom-md">
+          <style>
+/* 页面整体容器 */
+.cat-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 15px;
+}
+/* 顶部标题区域 */
+.cat-head {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.cat-title {
+  font-size: 46px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.cat-sub {
+  opacity: 0.7;
+  font-size: 17px;
+}
+/* 分类网格布局，卡片尺寸统一 */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+/* 分类卡片样式，半透明圆角，统一风格 */
+.cat-card {
+  background: rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 30px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #fff;
+}
+/* 鼠标悬浮上浮提亮 */
+.cat-card:hover {
+  background: rgba(255,255,255,0.13);
+  transform: translateY(-6px);
+}
+/* 分类名称大号字体 */
+.cat-name {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+/* 文章数量小字 */
+.cat-count {
+  opacity: 0.65;
+  font-size: 15px;
+}
+/* 无分类提示文字 */
+.empty-tip {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 0;
+  opacity: 0.6;
+  font-size: 18px;
+}
+/* 底部留白，避免贴页脚 */
+.cat-bottom {
+  height: 60px;
+}
+</style>
+<div class="cat-wrap">
+  <!-- 顶部标题 -->
+  <div class="cat-head">
+    <h1 class="cat-title">分类</h1>
+    <div class="cat-sub">文章按主题归类，快速查找对应学习笔记</div>
+  </div>
+  <!-- 分类网格卡片 -->
+  <div class="cat-grid">
+    
+      <div class="empty-tip">暂无任何分类，请给文章添加分类后刷新</div>
+    
+  </div>
+  <div class="cat-bottom"></div>
+</div>
+        </div>
+      
+    </article>
+
+    <!-- Comments (for pages that support it: guestbook, about, etc.) -->
+    
+  </main>
+
+  
+
+<footer id="site-footer" class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+
+    
+    <div class="footer-license">
+      <span>
+        <i class="fa-brands fa-creative-commons"></i>
+        <i class="fa-brands fa-creative-commons-by"></i>
+        <i class="fa-brands fa-creative-commons-nc"></i>
+        <i class="fa-brands fa-creative-commons-sa"></i>
+      </span>
+      <span class="license-text">
+        
+        本作品采用 CC BY-NC-SA 4.0 许可协议
+        
+      </span>
+    </div>
+    
+
+    <div class="footer-copyright">
+      <span>&copy; 2026 晚萤赴长路</span>
+      
+      <span class="footer-author">由 余生</span>
+      
+    </div>
+
+    
+
+    
+    <div class="footer-powered-by">
+      <span>技术支持 <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a></span>
+      <span class="footer-separator">|</span>
+      <span>theme <a href="https://github.com/LKDenchin/hexo-theme-firefly" target="_blank" rel="noopener noreferrer">Firefly</a></span>
+    </div>
+    
+
+    
+    <div class="footer-visitor-counter">
+      <span id="busuanzi_container_site_uv" class="visitor-count-item">
+        <i class="fa-regular fa-user"></i>
+        <span id="busuanzi_value_site_uv">-</span> 访客
+      </span>
+      <span class="footer-separator">|</span>
+      <span id="busuanzi_container_site_pv" class="visitor-count-item">
+        <i class="fa-regular fa-eye"></i>
+        <span id="busuanzi_value_site_pv">-</span> 浏览
+      </span>
+    </div>
+    
+
+  </div>
+</footer>
+
+</div>
+
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="search-modal" role="dialog" aria-label="搜索" aria-hidden="true">
+    <div class="search-modal-backdrop search-backdrop"></div>
+    <div class="search-modal-content">
+      <div class="search-input-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-input-icon"></i>
+        <input type="text" id="search-input" class="search-input" placeholder="搜索文章..." autocomplete="off">
+        <button id="search-close" class="search-close-btn close-btn" aria-label="关闭">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results">
+        <div class="search-hints">
+          <span>输入关键词搜索</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="display-settings-panel" class="display-settings-panel float-panel closed">
+  <!-- Theme Color Section -->
+  <div class="settings-section">
+    <div class="settings-section-title">主题色</div>
+    <div class="settings-label">
+      <span>色相</span>
+      <button class="settings-reset-btn" data-reset-section="theme">重置</button>
+    </div>
+    <input type="range" class="hue-slider" min="0" max="360" value="165">
+  </div>
+
+  <!-- Feature Toggles Section -->
+  <div class="settings-section">
+    <div class="settings-section-title">功能开关</div>
+    <div class="settings-label">
+      <span>水波纹动画</span>
+      <label class="settings-toggle">
+        <input type="checkbox" id="toggle-waves" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="settings-label">
+      <span>渐变过渡</span>
+      <label class="settings-toggle">
+        <input type="checkbox" id="toggle-gradient" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="settings-label">
+      <span>横幅标题</span>
+      <label class="settings-toggle">
+        <input type="checkbox" id="toggle-banner-title" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="settings-label">
+      <span>樱花特效</span>
+      <label class="settings-toggle">
+        <input type="checkbox" id="toggle-sakura" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="settings-label">
+      <span>横幅轮播</span>
+      <label class="settings-toggle">
+        <input type="checkbox" id="toggle-banner-carousel">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Post List Layout Section -->
+  <div class="settings-section">
+    <div class="settings-section-title">文章布局</div>
+    <div class="settings-label">
+      <span>布局模式</span>
+      <button class="settings-reset-btn" data-reset-section="layout">重置</button>
+    </div>
+    <div class="layout-buttons" style="display:flex;gap:0.5rem;">
+      <button data-layout="list" class="active" style="flex:1;padding:0.375rem 0.75rem;border:1px solid var(--line-divider);border-radius:var(--radius-medium);background:var(--btn-regular-bg);color:var(--text-secondary);cursor:pointer;">列表</button>
+      <button data-layout="grid" style="flex:1;padding:0.375rem 0.75rem;border:1px solid var(--line-divider);border-radius:var(--radius-medium);background:var(--btn-regular-bg);color:var(--text-secondary);cursor:pointer;">网格</button>
+    </div>
+  </div>
+</div>
+
+  
+
+<!-- Core Scripts -->
+<script src="/js/core/theme.js"></script>
+<script src="/js/core/wallpaper.js"></script>
+<script src="/js/core/settings.js"></script>
+<script src="/js/core/icons.js"></script>
+
+<!-- Effect Scripts -->
+<script src="/js/effects/typewriter.js"></script>
+
+<script src="/js/effects/sakura.js"></script>
+
+
+<script src="/js/effects/banner-carousel.js"></script>
+
+<script src="/js/effects/water-waves.js"></script>
+
+<!-- UI Scripts -->
+<script src="/js/ui/display-settings.js"></script>
+<script>
+  window.__SEARCH_PATH__ = '/local-search.xml';
+</script>
+<script src="/js/ui/search.js"></script>
+<script src="/js/ui/toc.js"></script>
+<script src="/js/ui/scroll.js"></script>
+<script src="/js/ui/back-to-top.js"></script>
+
+
+<!-- Feature Scripts -->
+
+<script src="/js/features/music-player.js"></script>
+
+
+
+<script src="/js/features/fancybox.js"></script>
+
+
+
+<!-- Boot Script -->
+<script src="/js/boot.js"></script>
+
+<!-- ==================== CDN Dependencies ==================== -->
+
+<!-- Highlight.js - Code Syntax Highlighting -->
+
+
+<!-- KaTeX / MathJax - Math Rendering -->
+
+
+<!-- Mermaid - Diagram Rendering -->
+
+
+<!-- Fancybox - Image Lightbox -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    Fancybox.bind('[data-fancybox]', {
+      // Fancybox options
+    });
+  });
+</script>
+
+
+<!-- Character Models - Live2D / Spine -->
+
+
+<!-- APlayer / Meting - Music Player -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
+<!-- Busuanzi - Visitor Counter -->
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- Code Copy Buttons -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Handle Hexo's figure.highlight code blocks
+    document.querySelectorAll('.post-content figure.highlight').forEach(function(fig) {
+      var btn = document.createElement('button');
+      btn.className = 'code-copy-btn';
+      btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+      btn.title = '复制代码';
+      fig.appendChild(btn);
+      
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var codeEl = fig.querySelector('.code pre code') || fig.querySelector('.code pre') || fig.querySelector('pre');
+        var text = codeEl ? codeEl.textContent : '';
+        navigator.clipboard.writeText(text).then(function() {
+          btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+    });
+
+    // Handle plain pre blocks (for non-Hexo code blocks)
+    document.querySelectorAll('.post-content pre:not(figure.highlight pre)').forEach(function(pre) {
+      if (pre.closest('.code-block-wrapper') || pre.closest('.code-copy-btn')) return;
+      var wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+      
+      var btn = document.createElement('button');
+      btn.className = 'code-copy-btn';
+      btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+      btn.title = '复制代码';
+      wrapper.appendChild(btn);
+      
+      btn.addEventListener('click', function() {
+        var code = pre.querySelector('code') || pre;
+        navigator.clipboard.writeText(code.textContent).then(function() {
+          btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+    });
+  });
+</script>
+
+<!-- Site Stats Fallback & Running Days Calculation -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Site running days calculation (use theme site start date first)
+    var runningDaysEl = document.getElementById('site-running-days');
+    if (runningDaysEl) {
+      var startDateStr = '2026-06-22';
+      if (startDateStr) {
+        var diff = Date.now() - new Date(startDateStr).getTime();
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        runningDaysEl.textContent = days > 0 ? days : 1;
+      }
+    }
+
+    // 1b. Last active calculation
+    var lastActiveEl = document.getElementById('site-last-active');
+    if (lastActiveEl) {
+      var latestDateStr = lastActiveEl.getAttribute('data-latest-date');
+      if (latestDateStr) {
+        var diffActive = Date.now() - new Date(latestDateStr).getTime();
+        var daysActive = Math.floor(diffActive / (1000 * 60 * 60 * 24));
+        if (daysActive <= 0) {
+          lastActiveEl.textContent = 'today';
+        } else {
+          lastActiveEl.textContent = daysActive + ' ' + '天' + '前';
+        }
+      }
+    }
+
+    // 2. Busuanzi fallback for visitor / pageview stats
+    setTimeout(function() {
+      var uvEl = document.getElementById('busuanzi_value_site_uv');
+      var pvEl = document.getElementById('busuanzi_value_site_pv');
+      
+      var isLocal = window.location.hostname === 'localhost' || 
+                     window.location.hostname === '127.0.0.1' || 
+                     window.location.protocol === 'file:';
+      
+      // UV fallback
+      if (uvEl && (uvEl.textContent === '-' || uvEl.textContent === '' || isLocal)) {
+        var localUv = localStorage.getItem('site_uv');
+        if (!localUv) {
+          localUv = Math.floor(Math.random() * 500) + 1200; // Realistic starting number
+        } else {
+          localUv = parseInt(localUv, 10);
+        }
+        // Increment UV once per session
+        if (!sessionStorage.getItem('uv_session_counted')) {
+          localUv += 1;
+          sessionStorage.setItem('uv_session_counted', 'true');
+          localStorage.setItem('site_uv', localUv);
+        }
+        uvEl.textContent = localUv;
+        var uvContainer = document.getElementById('busuanzi_container_site_uv');
+        if (uvContainer) uvContainer.style.display = 'inline';
+      }
+      
+      // PV fallback
+      if (pvEl && (pvEl.textContent === '-' || pvEl.textContent === '' || isLocal)) {
+        var localPv = localStorage.getItem('site_pv');
+        if (!localPv) {
+          localPv = Math.floor(Math.random() * 2000) + 3800; // Realistic starting number
+        } else {
+          localPv = parseInt(localPv, 10);
+        }
+        // Increment PV on every load
+        localPv += 1;
+        localStorage.setItem('site_pv', localPv);
+        pvEl.textContent = localPv;
+        var pvContainer = document.getElementById('busuanzi_container_site_pv');
+        if (pvContainer) pvContainer.style.display = 'inline';
+      }
+    }, 1500);
+  });
+</script>
+
+
+
+</body>
+</html>
